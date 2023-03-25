@@ -82,9 +82,15 @@ def SetupProperties():
     return setup
 
 
-def Create(name, obj=None):
-    '''Create(name) ... Creates and returns a TurnRough operation.'''
+#def Create(name, obj=None):
+#    '''Create(name) ... Creates and returns a TurnRough operation.'''
+#    if obj is None:
+#        obj = FreeCAD.ActiveDocument.addObject("Path::FeaturePython", name)
+#    obj.Proxy = ObjectTurnRough(obj, name)
+#    return obj
+def Create(name, obj=None, parentJob=None):
+    """Create(name) ... Creates and returns a TurnRough operation."""
     if obj is None:
         obj = FreeCAD.ActiveDocument.addObject("Path::FeaturePython", name)
-    obj.Proxy = ObjectTurnRough(obj, name)
+    obj.Proxy = ObjectTurnRough(obj, name, parentJob)
     return obj
